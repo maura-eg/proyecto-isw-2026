@@ -1,16 +1,8 @@
-const express = require('express');
-const cors = require('cors');
 require('dotenv').config();
+const { crearApp } = require('./src/app');
 
-const app = express();
 const PORT = process.env.PORT || 1303;
-
-app.use(cors());
-app.use(express.json());
-
-app.get('/api', (req, res) => {
-  res.json({ status: 'ok', mensaje: 'Servidor del proyecto funcionando correctamente' });
-});
+const app = crearApp();
 
 app.listen(PORT, () => {
   console.log(`Backend corriendo en el puerto ${PORT}`);
